@@ -14,6 +14,7 @@
 		A24E39C12972C040004EC0B8 /* TamagotchiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24E39C02972C040004EC0B8 /* TamagotchiAppTests.swift */; };
 		A24E39CB2972C040004EC0B8 /* TamagotchiAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24E39CA2972C040004EC0B8 /* TamagotchiAppUITests.swift */; };
 		A24E39CD2972C040004EC0B8 /* TamagotchiAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24E39CC2972C040004EC0B8 /* TamagotchiAppUITestsLaunchTests.swift */; };
+		A24E39DA2972C094004EC0B8 /* Tamagotchi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24E39D92972C094004EC0B8 /* Tamagotchi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		A24E39C62972C040004EC0B8 /* TamagotchiAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TamagotchiAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A24E39CA2972C040004EC0B8 /* TamagotchiAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiAppUITests.swift; sourceTree = "<group>"; };
 		A24E39CC2972C040004EC0B8 /* TamagotchiAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A24E39D92972C094004EC0B8 /* Tamagotchi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tamagotchi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				A24E39B12972C03D004EC0B8 /* ContentView.swift */,
 				A24E39B32972C03F004EC0B8 /* Assets.xcassets */,
 				A24E39B52972C03F004EC0B8 /* Preview Content */,
+				A24E39D92972C094004EC0B8 /* Tamagotchi.swift */,
 			);
 			path = TamagotchiApp;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A24E39B22972C03D004EC0B8 /* ContentView.swift in Sources */,
+				A24E39DA2972C094004EC0B8 /* Tamagotchi.swift in Sources */,
 				A24E39B02972C03D004EC0B8 /* TamagotchiAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

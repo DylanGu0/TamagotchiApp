@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var tamagotchiName = ""
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Form {
+            Section {
+                TextField("Please enter your tamagotchi's name.", text: $tamagotchiName)
+                let tamagotchi = Tamagotchi(tamagotchiName)
+                Text(tamagotchi.displayStats())
+            }
+        }
     }
 }
 
