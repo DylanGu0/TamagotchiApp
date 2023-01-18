@@ -13,15 +13,19 @@ class Tamagotchi {
     private var hunger: Int
     private var happiness: Int
     private var alive: Bool
+    private var hygiene: Int
+    private var isSick: Bool
     let name: String
     
     init(_ name: String) {
         self.hunger = 5
         self.age = 0
-        self.weight = 0
+        self.weight = 5
         self.happiness = 5
         self.alive = true
-        self.name = name.uppercased()
+        self.name = name
+        self.hygiene = 5
+        self.isSick = false
     }
 
     func getHunger() -> Int {
@@ -30,6 +34,10 @@ class Tamagotchi {
     
     func getAge() -> Int {
         return self.age
+    }
+    
+    func getHygiene() -> Int {
+        return self.hygiene
     }
     
     func getHappiness() -> Int {
@@ -50,6 +58,18 @@ class Tamagotchi {
         }
     }
     
+    func modifyHygiene(_ change: Int) {
+        self.hunger += change
+        if self.hygiene < 3 {
+            self.isSick = true
+        } else if self.hygiene < 0 {
+            self.hygiene = 0
+            self.alive = false
+        } else if self.hygiene > 10 {
+            self.hygiene = 10
+        }
+    }
+    
     func modifyWeight(_ change: Int) {
         self.weight += change
         if self.weight <= 0 || self.weight > 20 {
@@ -66,10 +86,21 @@ class Tamagotchi {
         }
     }
     
-    func eatSnack() -> (Int, Int) {
+    func eatMeal() -> (Int, Int) {
         modifyHunger(-1)
         modifyWeight(1)
         return (self.hunger, self.weight)
+    }
+    
+    func eatSnack() -> (Int, Int) {
+        modifyHunger(-5)
+        modifyWeight(2)
+        return (self.hunger, self.weight)
+    }
+    
+    func cleanUp() -> Int {
+        modifyHygiene(10)
+        return self.hygiene
     }
     
     func play() -> (Int, Int) {
@@ -83,7 +114,7 @@ class Tamagotchi {
 \(name)'s stats:
 Age: \(getAge()) years
 Happiness: \(getHappiness())/10
-Weight: \(getWeight())kg
+Weight: \(getWeight()) kg
 Hunger: \(getHunger())/10
 """
         return output
