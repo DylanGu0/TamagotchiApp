@@ -109,6 +109,10 @@ class Tamagotchi {
         return (self.happiness, self.weight)
     }
     
+    func giveMedicine() -> (Bool) {
+        return true
+    }
+    
     func displayStats() -> String {
         let output = """
 \(name)'s stats:
