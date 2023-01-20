@@ -70,6 +70,9 @@ class Tamagotchi {
         }
     }
     
+    func modifyIsSick () {
+        self.isSick = !self.isSick
+    }
     func modifyWeight(_ change: Int) {
         self.weight += change
         if self.weight <= 0 || self.weight > 20 {
@@ -109,8 +112,12 @@ class Tamagotchi {
         return (self.happiness, self.weight)
     }
     
-    func giveMedicine() -> (Bool) {
-        return true
+    func giveMedicine() -> Bool {
+        let temp = Int.random(in: 1...3)
+        if temp == 3 {
+            modifyIsSick()
+        }
+        return self.isSick
     }
     
     func displayStats() -> String {

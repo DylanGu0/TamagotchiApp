@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var tamagotchiName = "Tamagotchi"
+    @State private var tamagotchiName = "Tamagotchi" {
+        didSet {
+            tamagotchi = Tamagotchi(tamagotchiName)
+        }
+    }
+    @State private var tamagotchi = Tamagotchi("Tamgotchi")
     var body: some View {
         Form {
             Section {
                 TextField("Please enter your tamagotchi's name: ", text: $tamagotchiName)
-                let tamagotchi = Tamagotchi(tamagotchiName)
                 Text(tamagotchi.displayStats())
             }
-            let tamagotchi = Tamagotchi(tamagotchiName)
+
             VStack (alignment: .leading, spacing: 5){
                 Button("Feed Meal", action: {
                     let modification = tamagotchi.eatMeal()
