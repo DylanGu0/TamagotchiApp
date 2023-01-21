@@ -7,15 +7,15 @@
 
 import Foundation
 
-class Tamagotchi {
-    private var age: Int
-    private var weight: Int
-    private var hunger: Int
-    private var happiness: Int
-    private var alive: Bool
-    private var hygiene: Int
-    private var isSick: Bool
-    let name: String
+class Tamagotchi: ObservableObject {
+    @Published private var age: Int
+    @Published private var weight: Int
+    @Published private var hunger: Int
+    @Published private var happiness: Int
+    @Published private var alive: Bool
+    @Published private var hygiene: Int
+    @Published private var isSick: Bool
+    @Published var name: String
     
     init(_ name: String) {
         self.hunger = 5
@@ -95,6 +95,16 @@ class Tamagotchi {
         }
     }
     
+    func modifyAge(_ change: Int) {
+        self.age += change
+        for i in 1...self.age {
+            let randomInt = Int.random(in: 1...self.age)
+            if randomInt == i {
+                self.alive = false
+            }
+            
+        }
+    }
     func eatMeal() -> (Int, Int) {
         modifyHunger(-5)
         modifyWeight(3)
@@ -111,7 +121,7 @@ class Tamagotchi {
     
     func cleanUp() -> (Int, Int) {
         modifyHygiene(10)
-        modifyHappiness(-2)
+        modifyHappiness(-3)
         return (self.hygiene, self.happiness)
     }
     
@@ -125,6 +135,7 @@ class Tamagotchi {
     
     func giveMedicine() -> Bool {
         let temp = Int.random(in: 1...3)
+        modifyHappiness(-2)
         if temp == 3 {
             modifyIsSick()
         }
