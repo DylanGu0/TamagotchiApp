@@ -52,6 +52,10 @@ class Tamagotchi: ObservableObject {
         return self.weight
     }
     
+    func getAlive() -> Bool {
+        return self.alive
+    }
+    
     func modifyHunger(_ change: Int) {
         self.hunger += change
         if self.hunger < 0 {
@@ -90,6 +94,7 @@ class Tamagotchi: ObservableObject {
         self.happiness += change
         if self.happiness <= 0 {
             self.alive = false
+            self.happiness = 0
         } else if self.happiness > 10 {
             self.happiness = 10
         }
@@ -145,7 +150,7 @@ class Tamagotchi: ObservableObject {
     func displayStats() -> String {
         let output = """
 \(name)'s stats:
-Age: \(getAge()) years
+Age: \(getAge())
 Happiness: \(getHappiness())/10
 Weight: \(getWeight()) kg
 Hunger: \(getHunger())/10
